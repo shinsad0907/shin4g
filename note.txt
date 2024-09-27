@@ -1,0 +1,13 @@
+mã đơn hàng là để kiểm tra thông tin của tài khoản đó đã làm gì
+nội dung chuyển khoản là đúng hay là sai
+đầu tiên mã đơn hang mỗi khi tạo sẽ được note lại thông tin gói bla bla lại ngày nào nội dung đã được thanh toán hay chưa
+nội dung chuyển khoản thì không cần
+note lại người sao đang và đã sử dụng gói nào 
+ta cần 2 cái json 
+- json lưu mã đơn hàng của từng acc
+- json lưu link của vpn
+
+
+file payloads cần thêm ngày và đơn hàng nào mua
+ngày là để khi mua hàng mới thì hàng củ nếu đang thanh toán thì sẽ mở hàng đó lên không tạo thanh toán mới
+và để xác định được thời gian đếm ngược của đơn hàng

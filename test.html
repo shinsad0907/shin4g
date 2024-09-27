@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chọn Gói Dịch Vụ</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="sidebar w-64 p-4 flex flex-col"></div>
+      <h1 class="text-2xl font-bold mb-6">NEKO VPN</h1>
+      <nav class="flex-grow">
+        <ul class="space-y-2">
+          <li>
+            <a href="#" class="block py-2 px-4 rounded active">Trang Chủ</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded">Tài liệu sử dụng</a>
+          </li>
+          <li class="font-bold mt-4 mb-2 text-sm">GÓI DỊCH VỤ</li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded">Mua Gói Dịch Vụ</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded"
+              >Trạng thái [ Mấy Chủ ]</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded">Tiện Ích & Đổi Nền</a>
+          </li>
+          <li class="font-bold mt-4 mb-2 text-sm">TÀI CHÍNH</li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded">Đơn Hàng Của Tôi</a>
+          </li>
+          <li><a href="#" class="block py-2 px-4 rounded">Cộng Tác Viên</a></li>
+          <li class="font-bold mt-4 mb-2 text-sm">NGƯỜI DÙNG</li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded">Trung Tâm Kiểm Soát</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded">Chi Tiết Dung Lượng</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container">
+      <header>
+        <div class="logo">NEKO VPN</div>
+        <div class="header-icons">
+          <div class="icon">⚙️</div>
+          <div class="icon">🌐</div>
+          <div class="icon">👤</div>
+        </div>
+      </header>
+      <main>
+        <h1>Chọn gói phù hợp với bạn nhất</h1>
+
+        <div class="filter-buttons">
+          <button class="filter-button active">Tất cả</button>
+          <button class="filter-button">Chu kỳ</button>
+          <button class="filter-button">Theo lưu lượng</button>
+        </div>
+
+        <div class="packages">
+          <!-- GÓI 1: VĨNH VIỄN VINA VIP -->
+          <div class="package">
+            <div class="package-header">
+              <div class="package-title">
+                <span class="cart-icon">🛒</span>
+                VĨNH VIỄN VINA VIP
+              </div>
+              <div class="package-price">70,000<sup>đ</sup> /Vĩnh Viễn</div>
+            </div>
+            <div class="package-content">
+              <marquee scroll="0"
+                ><span class="marquee-span"
+                  >DÙNG FULL APP CHIẾN ALL GAME
+                </span></marquee
+              >
+              <div class="app-icons">
+                <img
+                  class="ls-is-cached jch-lazyloaded"
+                  src="https://i.imgur.com/jfzUyNm.png"
+                  alt="mxh"
+                  width="250"
+                  height="50"
+                />
+              </div>
+              <ul class="package-features">
+                <li>
+                  <span class="icon">🚀</span> Tốc Độ:
+                  <span class="highlight">Tối Đa 2 Gbps</span>
+                </li>
+                <li>
+                  <span class="icon">💾</span> Dung Lượng:
+                  <span class="highlight">512 GB</span>
+                </li>
+                <li>
+                  <span class="icon">📱</span> Giới Hạn:
+                  <span class="highlight">Id: 2 Thiết Bị/Gói</span>
+                </li>
+                <li>
+                  <span class="icon">🛠️</span> Hỗ Trợ:
+                  <span class="highlight">ADR - IOS</span>
+                </li>
+                <li>
+                  <span class="icon">💬</span> Chi Hỗ Trợ SMS:
+                  <span class="highlight">VINA Soạn YT30 gửi 888</span>
+                </li>
+              </ul>
+              <div class="server-info">Hệ Thống Máy Chủ</div>
+              <div class="country-flags">
+                <img
+                  class="ls-is-cached jch-lazyloaded"
+                  src="https://i.imgur.com/VIL0QiU.png"
+                  alt="mxh"
+                  width="280"
+                  height="50"
+                />
+              </div>
+            </div>
+            <button class="buy-button">Mua ngay</button>
+          </div>
+          <!-- GÓI 1: VĨNH VIỄN VINA VIP -->
+          <div class="package">
+            <div class="package-header">
+              <div class="package-title">
+                <span class="cart-icon">🛒</span>
+                VĨNH VIỄN VINA VIP
+              </div>
+              <div class="package-price">70,000<sup>đ</sup> /Vĩnh Viễn</div>
+            </div>
+            <div class="package-content">
+              <marquee scroll="0"
+                ><span class="marquee-span"
+                  >DÙNG FULL APP CHIẾN ALL GAME
+                </span></marquee
+              >
+              <div class="app-icons">
+                <img
+                  class="ls-is-cached jch-lazyloaded"
+                  src="https://i.imgur.com/jfzUyNm.png"
+                  alt="mxh"
+                  width="250"
+                  height="50"
+                />
+              </div>
+              <ul class="package-features">
+                <li>
+                  <span class="icon">🚀</span> Tốc Độ:
+                  <span class="highlight">Tối Đa 2 Gbps</span>
+                </li>
+                <li>
+                  <span class="icon">💾</span> Dung Lượng:
+                  <span class="highlight">512 GB</span>
+                </li>
+                <li>
+                  <span class="icon">📱</span> Giới Hạn:
+                  <span class="highlight">Id: 2 Thiết Bị/Gói</span>
+                </li>
+                <li>
+                  <span class="icon">🛠️</span> Hỗ Trợ:
+                  <span class="highlight">ADR - IOS</span>
+                </li>
+                <li>
+                  <span class="icon">💬</span> Chi Hỗ Trợ SMS:
+                  <span class="highlight">VINA Soạn YT30 gửi 888</span>
+                </li>
+              </ul>
+              <div class="server-info">Hệ Thống Máy Chủ</div>
+              <div class="country-flags">
+                <img
+                  class="ls-is-cached jch-lazyloaded"
+                  src="https://i.imgur.com/VIL0QiU.png"
+                  alt="mxh"
+                  width="280"
+                  height="50"
+                />
+              </div>
+            </div>
+            <button
+              onclick="window.location.href='{{ url_for('payment', speed='2 Gbps', storage='512 GB', device_limit='2', support='ADR - IOS',price = '70,000đ') }}'"
+              class="buy-button"
+            >
+              Mua ngay
+            </button>
+          </div>
+
+          <!-- Thêm các gói dịch vụ khác tương tự ở đây -->
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
