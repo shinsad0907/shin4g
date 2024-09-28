@@ -7,7 +7,19 @@ from firebase_admin import credentials, firestore, auth
 from payload import Payload
 import random
 
-cred = credentials.Certificate('data/data.json')  # Đường dẫn đến tệp JSON
+cred = credentials.Certificate({
+    "type": "service_account",
+    "project_id": "web4g-8b949",
+    "private_key_id": "6d88b11e2b90e4f0ef1924b7fc2bc222d9de6ecc",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDJ//qeOOC3F84G\nbpdtZ+iuCbcphdbHVX4QiWqjLwUlGaSFydXcVuLSnTHN2ZvaT3860gOoltQ3lOy9\nRTwymG5MCVkwzvT7xQmtN+PMgKRUY9/5N/0WAyDOUJVyor5DfswHHpaHcV4ciKNJ\nINBl0PEHqr+2dMWB1owqBV0jeyGv7EuYMy/IawzS+sNW2ajncbbhi8bRRYvC3BSq\nt8GUUmGPOlH2oa+VHk8T+mrz10lhpGMpnKuBpN/F51FylQD87s9fw2J+o4Y0s3gj\n0Gi6Rn6aKq38w37l0mGSKj+RCYmwsSSuy06jBpp8nnkot/YJ0ykgklxBHGbsniD7\nX+V1YYz9AgMBAAECggEAEj/3Q4499yzGZ1xcf/zwT7D/BFhcNDwsHJBduwqHe3ea\nnp/Cm5qZ+Y9MLZ3ob8vY4daRkAy4daEV1m/H5YZSCLqbfUZlac2+dxDimtpQfnNb\ni+ecDP4RW7J6HhZH/E8bXdVMokYCy68omXXGfjxnWlr54SEhqv5YQX+kj40TWRJl\n/ZTjoSQbK+lWvf1XFNxEnfnsw6XSuHhuLeRP8FTAnyj8g0Wn2EpiLgWUZs+GRAhs\niZLC4pVpTALRAWShkkGzBtkYXu3y7mjUcZX2dNF8ZnvdN1kCMfz8CPGReBvtHmAb\nShPH3qV3Qffy6IPFoYV1Np3d0W0LaH/dCcAN0i6o4QKBgQDzuhmlXKBd4XGrpncu\npUgQp/JQte6F0hV74//n+IwKpSbZqbuEa4E5VMksjKbIaVGS8dKUwPVuen1Aw4bo\n47MhGLsO+zJtDFqeKdRF8/pyzA73X9cBCGkMPcY295GgX3AdGLC+rQsmmpoeIOXI\nvzmyHjj3iOCpWfNOPqWkbkANpQKBgQDUK/kPt1YbE2kR1oPlWF7wRxDNw7fxN8M9\nUXv5v4tTEfTffk98fd7epZBYMrRInAc2V2HIsmeW71EeCN8vRyNToZtGlbd+DgbW\n2HWgg6E2Imgq3YIxuf5SyCaIw8d/uOF+IZ+D4SvWfDsN67tBbTpFU+6U9VTpN7r4\nXoMwoZeSeQKBgQDIvHkM6hom2Fx/zI4SvAx7s2dvNDisvRf2vxVxIBNvXRB/az1H\nVifLaVp7t6hSHfQSu9r9q2M5R+dLZP8DZy6MzsqaDyg8ClXEOJ1dtBGNZSXadnQl\npKCodWSAtyyY0qILRN+lW+54MBNJRz0aNu01F5FBxtmKgcxToGNa53cYBQKBgApo\nidRSix/S6PGeE2RZ3HZvFgzyEAD+Wk6Uw78xvVT66YdZO+8AgcFsX9Nj0WJKfTQW\nP07IKbrGzLTrfH9mPv5oTCS/TXwalg1OGx8ftfXg5DlOGofz9tz6wqEs8Yl7eVxl\nq9ydXDguafs52DrSb+xcvLSEAIFcYYizoj3tf3EJAoGAR7faZ5GYl7SWo+U6zYH8\nKHZsQsHnh25w5Mn1J2OOjrNEUuJHhDwSZL4rGQbTsLlQN5E5iYtWy5JXtgzI/MNM\nVCAPzEacusT2C3/ti5viPtK7O9WkNTrLJajPKzY/h2+ntwEgVJdNVT/b8xtijTMR\nPaB7wuIV01aPzvZ1avECmCY=\n-----END PRIVATE KEY-----\n",
+    "client_email": "firebase-adminsdk-tl30z@web4g-8b949.iam.gserviceaccount.com",
+    "client_id": "105834836414937060446",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-tl30z%40web4g-8b949.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+})  # Đường dẫn đến tệp JSON
 firebase_admin.initialize_app(cred)
 
 app = Flask(__name__)
