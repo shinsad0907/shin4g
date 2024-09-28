@@ -1,7 +1,6 @@
 import json
 from datetime import datetime, timedelta
 from firebase_admin import credentials, firestore
-import firebase_setup  # Khởi tạo Firebase
 
 class Payload:
     def __init__(self) -> None:
