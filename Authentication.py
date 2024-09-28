@@ -1,36 +1,45 @@
-import json
+import firebase_admin
+from firebase_admin import credentials, firestore
+import firebase_setup  # Khởi tạo Firebase
 
 class Authentication:
     def __init__(self) -> None:
-        with open('data/Authentication.json','r') as f:
-            self.data = json.load(f)
-    def data_login(self,gmail,password):
-        for i in range(len(self.data['user'])):
-            print(self.data['user'][i]['gmail'],self.data['user'][i]['password'])
-            if self.data['user'][i]['gmail'] == gmail and self.data['user'][i]['password'] == password:
+        self.db = firestore.client()  # Kết nối với Firestore
+
+    def data_login(self, gmail, password):
+        users_ref = self.db.collection('Authentication')
+        users = users_ref.stream()
+
+        status = 'Gmail & Password Wrong'
+        for user in users:
+            user_data = user.to_dict()
+            if user_data['gmail'] == gmail and user_data['password'] == password:
                 status = 'Login Success'
                 break
-            else:
-                status = 'Gmail & Password Wrong'
+        
         return status
-    def data_register(self,gmail,password,awaypassword):
-        for i in range(len(self.data['user'])):
-            if self.data['user'][i]['gmail'] == gmail:
+
+    def data_register(self, gmail, password, awaypassword):
+        users_ref = self.db.collection('Authentication')
+        users = users_ref.stream()
+
+        status = 'save success'
+        for user in users:
+            user_data = user.to_dict()
+            
+            # Kiểm tra xem 'gmail' có trong user_data không
+            if 'gmail' in user_data and user_data['gmail'] == gmail:
                 status = 'Gmail is using'
                 break
-            else:
-                if password == awaypassword:
-                    new_account = {
-                        "gmail": gmail,
-                        "password": password
-                    }
-                    self.data['user'].append(new_account)
-                    with open('data/Authentication.json', 'w') as file:
-                        json.dump(self.data, file, indent=4)
-                        status = 'save success'
-                        break
-                else:
-                    status = 'Awaypassword wrong'
-                    break
+        
+        if status == 'save success' and password == awaypassword:
+            new_account = {
+                'gmail': gmail,
+                'password': password
+            }
+            users_ref.add(new_account)
+        elif password != awaypassword:
+            status = 'Awaypassword wrong'
+
         return status
 

@@ -48,7 +48,16 @@
         color: #009900;
         font-weight: bold;
       }
+<<<<<<< HEAD
+      .marquee-span {
+        color: #ff0000;
+        animation: colorChangeDVS 1s infinite alternate;
+      }
+
+      @keyframes colorChangeDVS {
+=======
       @keyframes colorChange {
+>>>>>>> 0e18dae52d3514ea5071a270b06b9e09f4e049eb
         0% {
           color: #ff0000;
         }
@@ -63,6 +72,23 @@
         }
         100% {
           color: #ffff00;
+        }
+      }
+      .animated-text {
+        animation: colorChange 1s infinite alternate;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        .sidebar {
+          display: none;
+        }
+        .content {
+          margin-left: 0;
+          width: 100%;
+        }
+        .package {
+          margin-bottom: 1rem;
         }
       }
       .animated-text {

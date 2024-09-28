@@ -137,15 +137,19 @@ def QR():
 
     data = Payload().payload(current_time,user_email,type,order_id)
     print(data)
-    if data['paying']:
-        for i in range(len(data['paying'])):
-            if payment_info['package']['name'] == data['paying'][i]['type']:
-                order_time = data['paying'][i]['datetime']
-                order_id_buy = data['paying'][i]['order_id_buy']
-        
+    if 'paying' in data and data['paying']:
+        for payment in data['paying']:
+            if payment_info['package']['name'] == payment['type']:
+                order_time = payment['datetime']
+                order_id_buy = payment['order_id_buy']
+                break  # Thoát vòng lặp sau khi tìm thấy
+        else:
+            # Nếu không tìm thấy loại thanh toán, gán giá trị mặc định
+            order_time = current_time  # Hoặc giá trị khác tùy ý
+            order_id_buy = order_id  # Hoặc giá trị khác tùy ý
     else:
-        order_time = data['datetime']
-        order_id_buy = data['order_id_buy']
+        order_time = current_time  # Hoặc gán giá trị khác nếu 'paying' không có
+        order_id_buy = order_id  # Gán order_id mặc định
     order_time = datetime.strptime(order_time, '%Y-%m-%d %H:%M:%S')
     time_remaining = (order_time + timedelta(minutes=30)) - now
     
