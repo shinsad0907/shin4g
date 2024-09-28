@@ -1,6 +1,5 @@
 {
   "version": 2,
   "builds": [{ "src": "app.py", "use": "@vercel/python" }],
-  "routes": [{ "src": "/(.*)", "dest": "app.py" }],
-  "ignore": [".git", "node_modules", "*.log", "__pycache__"]
+  "routes": [{ "src": "/(.*)", "dest": "app.py" }]
 }
