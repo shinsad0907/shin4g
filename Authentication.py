@@ -1,11 +1,13 @@
 import firebase_admin
-import firebase_setup  # Khởi tạo Firebase
+from firebase_admin import credentials
+from firebase_admin import firestore  # Nhập module firestore để kết nối với Firestore
 
 class Authentication:
     def __init__(self) -> None:
+        # Tạo đối tượng credentials từ tệp JSON
         cred = credentials.Certificate("data/data.json")  # Đường dẫn tới tệp JSON của bạn
-        firebase_admin.initialize_app(cred)
-        self.db = firebase_admin.client()  # Kết nối với Firestore
+        firebase_admin.initialize_app(cred)  # Khởi tạo Firebase với thông tin xác thực
+        self.db = firestore.client()
 
     def data_login(self, gmail, password):
         users_ref = self.db.collection('Authentication')
