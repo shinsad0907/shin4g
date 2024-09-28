@@ -137,28 +137,24 @@ def QR():
 
     data = Payload().payload(current_time,user_email,type,order_id)
     print(data)
-    try:
-        if data['paying']:
-            for i in range(len(data['paying'])):
-                if payment_info['package']['name'] == data['paying'][i]['type']:
-                    order_time = data['paying'][i]['datetime']
-                    order_id_buy = data['paying'][i]['order_id_buy']
-            
-        else:
-            order_time = data['datetime']
-            order_id_buy = data['order_id_buy']
-        order_time = datetime.strptime(order_time, '%Y-%m-%d %H:%M:%S')
-        time_remaining = (order_time + timedelta(minutes=30)) - now
+    if data['paying']:
+        for i in range(len(data['paying'])):
+            if payment_info['package']['name'] == data['paying'][i]['type']:
+                order_time = data['paying'][i]['datetime']
+                order_id_buy = data['paying'][i]['order_id_buy']
         
-        # Nếu thời gian còn lại nhỏ hơn 0 thì gán bằng 0
-        if time_remaining.total_seconds() < 0:
-            time_remaining_seconds = 0
-        else:
-            time_remaining_seconds = int(time_remaining.total_seconds())
-    except:
+    else:
         order_time = data['datetime']
         order_id_buy = data['order_id_buy']
-        time_remaining_seconds = 1800
+    order_time = datetime.strptime(order_time, '%Y-%m-%d %H:%M:%S')
+    time_remaining = (order_time + timedelta(minutes=30)) - now
+    
+    # Nếu thời gian còn lại nhỏ hơn 0 thì gán bằng 0
+    if time_remaining.total_seconds() < 0:
+        time_remaining_seconds = 0
+    else:
+        time_remaining_seconds = int(time_remaining.total_seconds())
+
     
     return render_template('QR.html', time_remaining_seconds=time_remaining_seconds, package_info=order_id_buy,price=price)
 
