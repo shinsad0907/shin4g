@@ -3,115 +3,235 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thiết lập gói</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='payment.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='styles.css') }}"
-    />
+    <title>NEKO VPN - Thiết lập gói</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #e6eeff;
+      }
+      .sidebar {
+        background-color: #2196f3;
+        color: white;
+      }
+      .sidebar a {
+        transition: background-color 0.3s;
+      }
+      .sidebar a:hover,
+      .sidebar a.active {
+        background-color: #1e88e5;
+      }
+      .package {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      .package-header {
+        background-color: #2196f3;
+        color: white;
+        padding: 1rem;
+      }
+      .buy-button {
+        background-color: #ff4757;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: 500;
+        transition: all 0.3s;
+      }
+      .buy-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      .highlight {
+        color: #009900;
+        font-weight: bold;
+      }
+      @keyframes colorChange {
+        0% {
+          color: #ff0000;
+        }
+        25% {
+          color: #00ff00;
+        }
+        50% {
+          color: #0000ff;
+        }
+        75% {
+          color: #ff00ff;
+        }
+        100% {
+          color: #ffff00;
+        }
+      }
+      .animated-text {
+        animation: colorChange 1s infinite alternate;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        .sidebar {
+          display: none;
+        }
+        .content {
+          margin-left: 0;
+          width: 100%;
+        }
+        .package {
+          margin-bottom: 1rem;
+        }
+      }
+    </style>
   </head>
-  <body>
-    <div class="container">
-      <header>
-        <div class="logo">NEKO VPN</div>
-        <div class="header-icons">
+  <body class="flex min-h-screen">
+    <!-- Sidebar (hidden on mobile) -->
+    <div class="sidebar w-64 p-4 flex-shrink-0 hidden md:block">
+      <h1 class="text-2xl font-bold mb-6">NEKO VPN</h1>
+      <nav>
+        <ul class="space-y-2">
+          <li><a href="#" class="block py-2 px-4 rounded">Trang Chủ</a></li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded">Tài liệu sử dụng</a>
+          </li>
+          <li class="font-bold mt-4 mb-2 text-sm">GÓI DỊCH VỤ</li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded active"
+              >Mua Gói Dịch Vụ</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded"
+              >Trạng thái [ Máy Chủ ]</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded">Tiện Ích & Đổi Nền</a>
+          </li>
+          <li class="font-bold mt-4 mb-2 text-sm">TÀI CHÍNH</li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded">Đơn Hàng Của Tôi</a>
+          </li>
+          <li><a href="#" class="block py-2 px-4 rounded">Cộng Tác Viên</a></li>
+          <li class="font-bold mt-4 mb-2 text-sm">NGƯỜI DÙNG</li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded">Trung Tâm Kiểm Soát</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded">Chi Tiết Dung Lượng</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Main content -->
+    <div class="flex-1 p-8">
+      <!-- Mobile header (visible only on small screens) -->
+      <header class="md:hidden flex justify-between items-center mb-4">
+        <h1 class="text-2xl font-bold">NEKO VPN</h1>
+        <div class="flex space-x-2">
           <div class="icon">⚙️</div>
           <div class="icon">🌐</div>
           <div class="icon">👤</div>
         </div>
       </header>
 
-      <nav>
-        <ul>
-          <li>Trang Chủ</li>
-          <li>Tài liệu sử dụng</li>
-          <li>Mua Gói Dịch Vụ</li>
-          <li>Tiện ích & Đổi Nền</li>
-          <li>Đơn Hàng Của Tôi</li>
-        </ul>
-      </nav>
-      <h1 class="page-title">Thiết lập gói</h1>
+      <h2 class="text-2xl font-bold text-gray-800 mb-8">Thiết lập gói</h2>
 
-      <div class="main-content">
-        <div class="package-info">
-          <h2>VĨNH VIỄN VINA VIP</h2>
-          <div class="package-details">
-            <marquee scroll="0"
-              ><span class="marquee-span"
-                >DÙNG FULL APP CHIẾN ALL GAME
-              </span></marquee
-            >
-            <div class="app-icons">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Package Info -->
+        <div class="package">
+          <div class="package-header">
+            <h2 class="text-xl font-bold">VĨNH VIỄN VINA VIP</h2>
+          </div>
+          <div class="p-4">
+            <marquee scroll="0" class="mb-4">
+              <span class="animated-text">DÙNG FULL APP CHIẾN ALL GAME</span>
+            </marquee>
+            <div class="app-icons mb-4">
               <img
-                class="ls-is-cached jch-lazyloaded"
                 src="https://i.imgur.com/jfzUyNm.png"
                 alt="mxh"
-                width="250"
-                height="50"
+                class="w-full"
               />
             </div>
-            <ul class="features-list">
-              <li>
-                <span class="feature-label">Tốc Độ</span>
-                <span class="feature-value">{{ package.speed }}</span>
+            <ul class="space-y-2">
+              <li class="flex justify-between">
+                <span>Tốc Độ:</span>
+                <span class="highlight">{{ package.speed }}</span>
               </li>
-              <li>
-                <span class="feature-label">Dung Lượng</span
-                ><span class="feature-value"> {{ package.data }} </span>
+              <li class="flex justify-between">
+                <span>Dung Lượng:</span>
+                <span class="highlight">{{ package.data }}</span>
               </li>
-              <li>
-                <span class="feature-label">Giới Hạn</span
-                ><span class="feature-value"
+              <li class="flex justify-between">
+                <span>Giới Hạn:</span>
+                <span class="highlight"
                   >Id: {{ package.devices }} Thiết Bị/Gói</span
                 >
               </li>
-              <li>
-                <span class="feature-label">Hỗ Trợ</span
-                ><span class="feature-value">{{ package.support }}</span>
+              <li class="flex justify-between">
+                <span>Hỗ Trợ:</span>
+                <span class="highlight">{{ package.support }}</span>
               </li>
-              <li>
-                <span class="feature-label">Chi Hỗ Trợ SMS</span
-                ><span class="feature-value">{{ package.sms }}</span>
+              <li class="flex justify-between">
+                <span>Chi Hỗ Trợ SMS:</span>
+                <span class="highlight">{{ package.sms }}</span>
               </li>
             </ul>
-            <p class="system-info">Hệ Thống Máy Chủ</p>
-            <div class="server-flags">
+            <p class="font-bold text-center my-4">Hệ Thống Máy Chủ</p>
+            <div class="flex justify-center space-x-2">
               <img
                 src="{{ url_for('static', filename='images/flag-vietnam.png') }}"
                 alt="Vietnam"
+                class="w-8 h-8"
               />
               <img
                 src="{{ url_for('static', filename='images/flag-hongkong.png') }}"
                 alt="Hong Kong"
+                class="w-8 h-8"
               />
             </div>
           </div>
         </div>
 
-        <div class="order-summary">
-          <button class="discount-btn">Có phiếu giảm giá?</button>
-          <div class="total-price">
-            <h3>Tổng tiền đơn hàng</h3>
-            <p class="price-item">
-              VĨNH VIỄN VINA VIP x Vĩnh Viễn<span>{{ package.price }} đ</span>
-            </p>
-            <p class="total">Tổng<span>{{ package.price }} đ</span></p>
-            <button
-              onclick="window.location.href='{{ url_for('QR', price=package.price,order_id_buy=order_id_buy) }}'"
-              class="buy-button"
-            >
-              Mua ngay
-            </button>
+        <!-- Order Summary -->
+        <div class="space-y-4">
+          <button class="w-full py-2 px-4 bg-blue-500 text-white rounded">
+            Có phiếu giảm giá?
+          </button>
+          <div class="package">
+            <div class="package-header">
+              <h3 class="text-lg font-bold">Tổng tiền đơn hàng</h3>
+            </div>
+            <div class="p-4 space-y-2">
+              <div class="flex justify-between">
+                <span>VĨNH VIỄN VINA VIP x Vĩnh Viễn</span>
+                <span>{{ package.price }} đ</span>
+              </div>
+              <div class="flex justify-between font-bold">
+                <span>Tổng</span>
+                <span>{{ package.price }} đ</span>
+              </div>
+              <button
+                onclick="window.location.href='{{ url_for('QR', price=package.price,order_id_buy=order_id_buy) }}'"
+                class="buy-button w-full"
+              >
+                Mua ngay
+              </button>
+            </div>
+          </div>
+          <div class="package">
+            <div class="package-header">
+              <h3 class="text-lg font-bold">Chu kỳ thanh toán</h3>
+            </div>
+            <div class="p-4">
+              <div class="flex justify-between">
+                <span>Vĩnh Viễn</span>
+                <span>70,000 đ</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="payment-details">
-        <h3>Chu kỳ thanh toán</h3>
-        <p class="payment-cycle">Vĩnh Viễn<span>70,000 đ</span></p>
       </div>
     </div>
   </body>

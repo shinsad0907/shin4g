@@ -1,33 +1,31 @@
-import firebase_admin
-from firebase_admin import credentials, firestore
+import requests
+
+url = "https://66f957adafc569e13a9882cf.mockapi.io/Authentication"
+headers = {
+    "Authorization": "66f957adafc569e13a9882cf",
+    "Content-Type": "application/json"
+}
 
 class Authentication:
-    def __init__(self) -> None:
-        self.db = firestore.client()  # Kết nối với Firestore
-
     def data_login(self, gmail, password):
-        users_ref = self.db.collection('Authentication')
-        users = users_ref.stream()
+        response = requests.get(url, headers=headers)
+        users = response.json()
 
         status = 'Gmail & Password Wrong'
         for user in users:
-            user_data = user.to_dict()
-            if user_data['gmail'] == gmail and user_data['password'] == password:
+            if 'gmail' in user and user['gmail'] == gmail and user['password'] == password:
                 status = 'Login Success'
                 break
         
         return status
 
     def data_register(self, gmail, password, awaypassword):
-        users_ref = self.db.collection('Authentication')
-        users = users_ref.stream()
+        response = requests.get(url, headers=headers)
+        users = response.json()
 
         status = 'save success'
         for user in users:
-            user_data = user.to_dict()
-            
-            # Kiểm tra xem 'gmail' có trong user_data không
-            if 'gmail' in user_data and user_data['gmail'] == gmail:
+            if 'gmail' in user and user['gmail'] == gmail:
                 status = 'Gmail is using'
                 break
         
@@ -36,9 +34,12 @@ class Authentication:
                 'gmail': gmail,
                 'password': password
             }
-            users_ref.add(new_account)
+            response = requests.post(url, headers=headers, json=new_account)
+            if response.status_code == 201:  # Kiểm tra nếu tạo mới thành công
+                status = 'User registered successfully!'
+            else:
+                status = 'Error in registration'
         elif password != awaypassword:
             status = 'Awaypassword wrong'
 
         return status
-

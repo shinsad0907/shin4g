@@ -1,3 +1,247 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEKO VPN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #e6eeff;
+      }
+      .sidebar {
+        background-color: #2196f3;
+        color: white;
+      }
+      .sidebar a {
+        transition: background-color 0.3s;
+      }
+      .sidebar a:hover,
+      .sidebar a.active {
+        background-color: #1e88e5;
+      }
+      .package {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      .package-header {
+        background-color: #2196f3;
+        color: white;
+        padding: 1rem;
+      }
+      .buy-button {
+        background-color: #ff4757;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: 500;
+        transition: all 0.3s;
+      }
+      .buy-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      .highlight {
+        color: #009900;
+        font-weight: bold;
+      }
+      .marquee-span {
+        color: #ff0000;
+        animation: colorChangeDVS 1s infinite alternate;
+      }
+
+      @keyframes colorChangeDVS {
+        0% {
+          color: #ff0000;
+        }
+        25% {
+          color: #00ff00;
+        }
+        50% {
+          color: #0000ff;
+        }
+        75% {
+          color: #ff00ff;
+        }
+        100% {
+          color: #ffff00;
+        }
+      }
+      .animated-text {
+        animation: colorChange 1s infinite alternate;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        .sidebar {
+          display: none;
+        }
+        .content {
+          margin-left: 0;
+          width: 100%;
+        }
+        .package {
+          margin-bottom: 1rem;
+        }
+      }
+      .animated-text {
+        animation: colorChange 1s infinite alternate;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        .sidebar {
+          display: none;
+        }
+        .content {
+          margin-left: 0;
+          width: 100%;
+        }
+        .package {
+          margin-bottom: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="flex min-h-screen">
+    <!-- Sidebar (hidden on mobile) -->
+    <div class="sidebar w-64 p-4 flex-shrink-0 hidden md:block">
+      <h1 class="text-2xl font-bold mb-6">NEKO VPN</h1>
+      <nav>
+        <ul class="space-y-2">
+          <li><a href="#" class="block py-2 px-4 rounded">Trang Chủ</a></li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded">Tài liệu sử dụng</a>
+          </li>
+          <li class="font-bold mt-4 mb-2 text-sm">GÓI DỊCH VỤ</li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded active"
+              >Mua Gói Dịch Vụ</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded"
+              >Trạng thái [ Máy Chủ ]</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded">Tiện Ích & Đổi Nền</a>
+          </li>
+          <li class="font-bold mt-4 mb-2 text-sm">TÀI CHÍNH</li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded">Đơn Hàng Của Tôi</a>
+          </li>
+          <li><a href="#" class="block py-2 px-4 rounded">Cộng Tác Viên</a></li>
+          <li class="font-bold mt-4 mb-2 text-sm">NGƯỜI DÙNG</li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded">Trung Tâm Kiểm Soát</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-4 rounded">Chi Tiết Dung Lượng</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main content -->
+    <div class="flex-1 p-8">
+      <!-- Mobile header (visible only on small screens) -->
+      <header class="md:hidden flex justify-between items-center mb-4">
+        <h1 class="text-2xl font-bold">NEKO VPN</h1>
+        <button class="text-2xl">☰</button>
+      </header>
+
+      <h2 class="text-2xl font-bold text-gray-800 mb-8">
+        Chọn gói phù hợp với bạn nhất
+      </h2>
+
+      <div class="filter-buttons mb-6 flex space-x-2">
+        <button class="filter-button active">Tất cả</button>
+        <button class="filter-button">Chu kỳ</button>
+        <button class="filter-button">Theo lưu lượng</button>
+      </div>
+
+      <div
+        class="packages grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        <!-- VĨNH VIỄN VINA VIP Package -->
+        <div class="package">
+          <div class="package-header">
+            <div class="package-title text-lg font-bold mb-2">
+              <span class="mr-2">🛒</span>
+              VĨNH VIỄN VINA VIP
+            </div>
+            <div class="package-price text-2xl font-bold">
+              70,000<sup>đ</sup> /Vĩnh Viễn
+            </div>
+          </div>
+          <div class="package-content p-4">
+            <p class="animated-text mb-2">DÙNG FULL APP CHIẾN ALL GAME</p>
+            <div class="app-icons mb-4">
+              <img
+                src="path_to_app_icons_image"
+                alt="App Icons"
+                class="w-full"
+              />
+            </div>
+            <ul class="package-features space-y-2">
+              <li class="flex justify-between">
+                <span>🚀 Tốc Độ:</span>
+                <span class="highlight">Tối Đa 2 Gbps</span>
+              </li>
+              <li class="flex justify-between">
+                <span>💾 Dung Lượng:</span>
+                <span class="highlight">512 GB</span>
+              </li>
+              <li class="flex justify-between">
+                <span>📱 Giới Hạn:</span>
+                <span class="highlight">Id: 2 Thiết Bị/Gói</span>
+              </li>
+              <li class="flex justify-between">
+                <span>🛠️ Hỗ Trợ:</span>
+                <span class="highlight">ADR - IOS</span>
+              </li>
+              <li class="flex justify-between">
+                <span>💬 Chi Hỗ Trợ SMS:</span>
+                <span class="highlight">VINA Soạn YT30 gửi 888</span>
+              </li>
+            </ul>
+            <div class="server-info text-center font-bold my-4">
+              Hệ Thống Máy Chủ
+            </div>
+            <div class="country-flags mb-4">
+              <img
+                src="path_to_country_flags_image"
+                alt="Country Flags"
+                class="w-full"
+              />
+            </div>
+          </div>
+          <div class="p-4">
+            <button
+              class="buy-button w-full"
+              onclick="window.location.href='{{ url_for('payment', speed='2 Gbps', storage='512 GB', device_limit='2', support='ADR - IOS',price = '70,000đ') }}'"
+              class="buy-button"
+            >
+              Mua ngay
+            </button>
+          </div>
+        </div>
+
+        <!-- Add more package divs here for other VPN plans -->
+      </div>
+    </div>
+  </body>
+</html>
+<<<<<<< HEAD
+=======
 <!DOCTYPE html>
 <html lang="vi">
   <head>
@@ -240,3 +484,6 @@
     </div>
   </body>
 </html>
+>>>>>>> 64b73b614001c593f0fa5252e72a3308d3d00806
+=======
+>>>>>>> main
